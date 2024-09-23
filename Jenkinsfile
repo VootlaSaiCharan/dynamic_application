@@ -24,6 +24,7 @@ pipeline {
             steps {
                 script{
                     sh 'docker-compose down'
+                    sh 'docker rmi -f $(docker images -aq)'
                 }
             }
         }

@@ -8,7 +8,8 @@ pipeline {
         stage('Build') {
             when { expression { return params.action == 'create'}}
             steps {
-                git branch: 'parameter', url: 'https://github.com/VootlaSaiCharan/dynamic_application.git'
+                git 'https://github.com/VootlaSaiCharan/dynamic_application.git'
+                // git branch: 'parameter', url: 'https://github.com/VootlaSaiCharan/dynamic_application.git'
             }
         }
         stage('Run Docker Compose') {

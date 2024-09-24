@@ -14,14 +14,24 @@ const SignUp = () => {
 });
 function postSignUpData(data){
   try{
-    axios.post(`${process.env.REACT_APP_API_URL}/api/user/register`,data).then((res)=>{
-      // console.log(res);
-      window.alert(res.data.message);
-      navigate("/")
-    }).catch((err)=>{
-      // console.log(err);
-      window.alert(err.response.data.message);
-    })
+    // axios.post(`${process.env.REACT_APP_API_URL}/api/user/register`,data).then((res)=>{
+    //   // console.log(res);
+    //   window.alert(res.data.message);
+    //   navigate("/")
+    // }).catch((err)=>{
+    //   // console.log(err);
+    //   window.alert(err.response.data.message);
+    // })
+    axios.post(`${process.env.REACT_APP_API_URL}/api/user/register`, data).then((res) => {
+    console.log("Success:", res);  // Check the response
+    window.alert(res.data.message);  // Message alert
+    navigate("/");  // Navigate after success
+  })
+  .catch((err) => {
+    console.log("Error:", err);  // Log error for debugging
+    window.alert(err.response.data.message);
+  });
+
 
   }catch(err){
     window.alert(err.message)

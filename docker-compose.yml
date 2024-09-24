@@ -3,7 +3,7 @@ version: '3.8'
 services:
   frontend:
     build:
-      context: ./registration-mern-app-badhaan
+      context: ./registration-mern-app
     ports:
       - "80:80"
     depends_on:
@@ -11,11 +11,11 @@ services:
 
   backend:
     build:
-      context: ./registration-server-Badhaan
+      context: ./registration-server
     ports:
       - "5000:5000"
     environment:
-      - MONGO_URL=mongodb://mongo:27017/budhan-users
+      - MONGO_URL=mongodb://mongo:27017/devops-cloud-users
     depends_on:
       - mongo
 

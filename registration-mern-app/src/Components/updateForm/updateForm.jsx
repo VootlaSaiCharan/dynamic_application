@@ -25,7 +25,7 @@ const Profile = () => {
   axios
       .get(`${process.env.REACT_APP_API_URL}/api/user`, config)
       .then((res) => {
-        console.log(res.data.data);
+        console.log(res);
         setProfile(res.data.data);
         setUpdateDetails({
           name: res.data.data.name,
@@ -34,18 +34,20 @@ const Profile = () => {
         });
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [click]);
 
 
 useEffect( ()=>{
 if(Object.keys(formError).length==0 && updateClick ){
     console.log(updateDetails);
+  
    axios
     .post(`${process.env.REACT_APP_API_URL}/api/user/update`,updateDetails,config)
     .then((res) => {
      console.log(res);
      window.alert(res.data.message);
-     document.location.reload()
+     setClick(false)
+    //  document.location.reload()
     })
     .catch((err) => console.log(err));
 }
@@ -95,19 +97,19 @@ function validate(data){
         <h2>My Profile</h2>
         <div>
             <label>Name:</label>
-            <span>{profile.name}</span>
+            <span>{profile?.name}</span>
         </div>
         <div>
             <label>Email:</label>
-            <span>{profile.email}</span>
+            <span>{profile?.email}</span>
         </div>
         <div>
             <label>Place:</label>
-            <span>{profile.place}</span>
+            <span>{profile?.place}</span>
         </div>
         <div>
             <label>Phone Number:</label>
-            <span>{profile.mobileNumber}</span>
+            <span>{profile?.mobileNumber}</span>
         </div>
       </div>
       <button className="update-btn-toggle" onClick={()=>setClick(!click)}>update profile</button>

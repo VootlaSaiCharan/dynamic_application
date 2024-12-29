@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registration-mern-db
+  labels:
+    name: registration-mern-db
+    type: db
+spec:
+  template:
+    metadata:
+      name: registration-mern-db
+      labels:
+        name: registration-mern-db
+        type: db
+    spec:
+      containers:
+        - name: registration-mern-db-cont
+          image: mongo
+          ports:
+            - containerPort: 27017
+  replicas: 3
+  selector:
+    matchLabels:
+      type: db

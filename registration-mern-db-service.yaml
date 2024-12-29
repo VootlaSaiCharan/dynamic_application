@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: registration-mern-db
+  labels:
+    name: registration-mern-db
+    type: db
+spec:
+  selector:
+    type: db
+  ports:
+    - port: 27017
+      targetPort: 27017

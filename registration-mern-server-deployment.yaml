@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registration-mern-server
+  labels:
+    name: registration-mern-server
+    type: back-end
+spec:
+  template:
+    metadata:
+      name: registration-mern-server
+      labels:
+        name: registration-mern-server
+        type: back-end
+    spec:
+      containers:
+        - name: registration-mern-server-cont
+          image: vootlasaicharan/registration-mern-server
+          env:
+            - name: MONGO_URL
+              value: "mongodb://registration-mern-db:27017/budhan-users"
+          ports:
+            - containerPort: 5000
+  replicas: 3
+  selector:
+    matchLabels:
+      type: back-end
+    

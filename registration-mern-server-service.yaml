@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: registration-mern-server
+  labels:
+    name: registration-mern-server
+    type: back-end
+spec:
+  type: NodePort
+  selector:
+    type: back-end
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 30005

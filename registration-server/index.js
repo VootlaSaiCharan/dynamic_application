@@ -9,10 +9,19 @@ app.use("/",userRouter);
 app.get("/",(req,res)=>{
     res.send("hello world")
 })
+
+mongoose.connect('mongodb://registration-mern-db:27017/devops-cloud-users?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log('MongoDB connected successfully');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
+
 app.listen(port,()=>{
-   mongoose.connect('mongodb://mongo:27017/devops-cloud-users',{useNewUrlParser: true},()=>{
-//    mongoose.connect('mongodb://localhost:27017/devops-cloud-users',{useNewUrlParser: true},()=>{
-    console.log("connected to database");
-})
+//    mongoose.connect('mongodb://mongo:27017/devops-cloud-users',{useNewUrlParser: true},()=>{
+//   mongoose.connect('mongodb://localhost:27017/devops-cloud-users',{useNewUrlParser: true},()=>{
+//     console.log("connected to database");
+// })
     console.log(`server is up at ${port}`);
 })

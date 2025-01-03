@@ -18,7 +18,7 @@ spec:
           image: vootlasaicharan/registration-mern-server
           env:
             - name: MONGO_URL
-              value: "mongodb://127.0.0.1:27017/budhan-users"
+              value: "mongodb://registration-mern-db:27017/devops-cloud-users?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh"
           ports:
             - containerPort: 5000
   # replicas: 3

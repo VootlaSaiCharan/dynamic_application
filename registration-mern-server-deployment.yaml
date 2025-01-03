@@ -18,10 +18,10 @@ spec:
           image: vootlasaicharan/registration-mern-server
           env:
             - name: MONGO_URL
-              value: "mongodb://registration-mern-db:27017/budhan-users"
+              value: "mongodb://127.0.0.1:27017/budhan-users"
           ports:
             - containerPort: 5000
-  replicas: 3
+  # replicas: 3
   selector:
     matchLabels:
       type: back-end

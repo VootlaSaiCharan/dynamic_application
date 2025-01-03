@@ -18,7 +18,7 @@ spec:
           image: mongo
           ports:
             - containerPort: 27017
-  replicas: 3
+  # replicas: 3
   selector:
     matchLabels:
       type: db

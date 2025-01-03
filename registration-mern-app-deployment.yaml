@@ -18,7 +18,7 @@ spec:
           image: vootlasaicharan/registration-mern
           ports:
             - containerPort: 80
-  replicas: 3
+  # replicas: 3
   selector:
     matchLabels:
       type: front-end

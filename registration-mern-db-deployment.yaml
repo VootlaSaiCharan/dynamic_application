@@ -18,6 +18,12 @@ spec:
           image: mongo
           ports:
             - containerPort: 27017
+          volumeMounts:
+            - mountPath: /tmp/db
+              name: mongodb-data
+      volumes:
+        - name: mongodb-data
+          emptyDir: {}
   # replicas: 3
   selector:
     matchLabels:
